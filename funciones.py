@@ -1,2 +1,13 @@
-while True:
-    print("probando 123")
+import logging
+
+logging.basicConfig(
+    format='%(asctime)s %(levelname)-8s %(message)s',
+    filename='application.log',
+    level=logging.DEBUG,
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+activo = 'GOOG'
+logging.debug(f"se esta comprando {activo}")
+logging.info(f"se esta comprando {activo}")
+logging.warning("Esto es un mensaje de prueba")
