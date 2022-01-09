@@ -6,8 +6,3 @@ logging.basicConfig(
     level=logging.DEBUG,
     datefmt='%Y-%m-%d %H:%M:%S'
 )
-
-activo = 'GOOG'
-logging.debug(f"se esta comprando {activo}")
-logging.info(f"se esta comprando {activo}")
-logging.warning("Esto es un mensaje de prueba")
