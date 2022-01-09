@@ -1,1 +1,2 @@
-print("probando 123")
+while True:
+    print("probando 123")
