@@ -1,5 +1,5 @@
 #para guardar una variable y su valor en el entorno
-SENDER_PASS = ''
+SENDER_PASS = 'correosPrimero01'
 
 #luego se recupera de este modo
 import smtplib
@@ -41,7 +41,10 @@ serverSMTP.sendmail(from_addr=emisor,to_addrs=receptor,msg=mensaje.as_string())
 serverSMTP.close()
 #serverSMTP.quit()
 
-""" raise SMTPAuthenticationError(code, resp)
+""" 
+Problemas con Gmail
+
+raise SMTPAuthenticationError(code, resp)
 smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials x14sm1495366oiv.39 - gsmtp') 
 Solución
 https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp
@@ -59,4 +62,16 @@ https://myaccount.google.com/u/1/lesssecureapps?pli=1&pageId=none
 
 It should be all good now.
 
+"""
+
+""" Problemas con Gmail desde GCP
+
+ raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (534, b'5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbv\n5.7.14 57bx2UT3oQE9NII8QuGokpun8eSxEQJ31vy1HPu7uRfwz_hOUQkldBMBAdlH0wRcus5wf\n5.7.14 a2C8UPMnJNXVTxQc6TcS3LeWCGfhbiYjG7SKyubve5jD27B5stjzZkOgHmpRiNIv>\n5.7.14 Please log in via your web browser and then try again.\n5.7.14  Learn more at\n5.7.14  https://support.google.com/mail/answer/78754 s47sm1999700uad.17 - gsmtp')
+
+https://stackoverflow.com/questions/26852128/smtpauthenticationerror-when-sending-mail-using-gmail-and-python
+
+Your code looks correct but sometimes google blocks an IP when you try to send a email from an unusual location. You can try to unblock it by visiting https://accounts.google.com/DisplayUnlockCaptcha from the IP and following the prompts.
+
+Reference: https://support.google.com/accounts/answer/6009563 
 """
